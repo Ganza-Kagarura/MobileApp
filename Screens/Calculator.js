@@ -56,9 +56,9 @@ export default class Calculator extends Component {
             </Row>
   
             <Row>
+              <Button text="4" onPress={() => this.HandleTap("number", 4)} />
               <Button text="5" onPress={() => this.HandleTap("number", 5)} />
               <Button text="6" onPress={() => this.HandleTap("number", 6)} />
-              <Button text="7" onPress={() => this.HandleTap("number", 7)} />
               <Button
                 text="-"
                 theme="accent"
@@ -70,7 +70,6 @@ export default class Calculator extends Component {
               <Button text="1" onPress={() => this.HandleTap("number", 1)} />
               <Button text="2" onPress={() => this.HandleTap("number", 2)} />
               <Button text="3" onPress={() => this.HandleTap("number", 3)} />
-              <Button text="4" onPress={() => this.HandleTap("number", 4)} />
               <Button
                 text="+"
                 theme="accent"
