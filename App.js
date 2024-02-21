@@ -6,16 +6,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import Calculator from "./Screens/Calculator"
 import Home from "./Screens/Home"
 import Contacts from "./Screens/Contacts"
-import { View, StyleSheet, Text } from "react-native"
+import { StyleSheet, Text } from "react-native"
 import NetworkStatus from "./src/components/NetworkStatus"
+import { ThemeProvider } from "./src/components/ThemeContext"
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-    // <View>
-    <>
-      <Text style={styles.header}>Main Component</Text>
+    <ThemeProvider>
+        <Text style={styles.header}>Main Component</Text>
       <NetworkStatus />
       <NavigationContainer>
           <Tab.Navigator
@@ -43,8 +43,7 @@ const App = () => {
             <Tab.Screen name="Contacts" component={Contacts} />
           </Tab.Navigator>
       </NavigationContainer>
-    </>
-    // </View>
+    </ThemeProvider>
   )
 }
 
