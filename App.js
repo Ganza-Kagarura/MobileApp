@@ -1,63 +1,36 @@
 import React from "react"
 import { NavigationContainer } from "@react-navigation/native"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import Ionicons from 'react-native-vector-icons/Ionicons'
-
-import Calculator from "./Screens/Calculator"
-import Home from "./Screens/Home"
-import Contacts from "./Screens/Contacts"
-import { StyleSheet, Text } from "react-native"
 import NetworkStatus from "./src/components/NetworkStatus"
 import { ThemeProvider } from "./src/components/ThemeContext"
+import TabNavigation from "./src/components/TabNavigation"
+import DrawerNavigator from "./src/components/DrawerNavigation"
 
-const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <ThemeProvider>
-        <Text style={styles.header}>Main Component</Text>
       <NetworkStatus />
       <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-             tabBarIcon: ({ color, size }) => {
-              let iconName;
-
-              if (route.name === 'Calculator') {
-                iconName = 'calculator';
-              } else if (route.name === 'Home') {
-                iconName = 'home';
-              } else if (route.name === 'Contacts') {
-                iconName = 'contacts';
-              }
-              return <Ionicons name={iconName} size={size} color={color} />;
-              },
-            })}
-            tabBarOptions={{
-              activeTintColor: 'blue',
-              inactiveTintColor: 'gray',
-            }}
-          >
-            <Tab.Screen name="Calculator" component={Calculator} />
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Contacts" component={Contacts} />
-          </Tab.Navigator>
+        <DrawerNavigator />
       </NavigationContainer>
+      {/* <NavigationContainer>
+        <TabNavigation />
+      </NavigationContainer> */}
     </ThemeProvider>
   )
 }
 
 export default App
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  header: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   header: {
+//     fontSize: 20,
+//     fontWeight: 'bold',
+//     marginBottom: 20,
+//   },
+// });
